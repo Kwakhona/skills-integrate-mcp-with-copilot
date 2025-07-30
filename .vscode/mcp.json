@@ -1,18 +1,20 @@
 {
   "servers": {
     "github": {
-      "command": "docker",
+      "command": "npx",
       "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN",
-        "ghcr.io/github/github-mcp-server:v0.5.0"
+        "@modelcontextprotocol/server-github"
       ],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github_token}"
       }
+    },
+    "skills-local": {
+      "command": "python",
+      "args": [
+        "/workspaces/skills-integrate-mcp-with-copilot/mcp_server.py"
+      ],
+      "cwd": "/workspaces/skills-integrate-mcp-with-copilot"
     }
   },
   "inputs": [
